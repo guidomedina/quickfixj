@@ -20,6 +20,7 @@
 package quickfix;
 
 import org.quickfixj.CharsetSupport;
+import org.quickfixj.StringBuilderHelper;
 
 import java.io.Serializable;
 
@@ -139,7 +140,7 @@ public /*abstract*/ class Field<T> implements Serializable {
         if (isCalculated) {
             return;
         }
-        StringBuilder buffer = new StringBuilder();
+        StringBuilder buffer = StringBuilderHelper.instance();
         toString(buffer);
         data = buffer.toString();
         if (!CharsetSupport.isStringEquivalent(CharsetSupport.getCharsetInstance()))

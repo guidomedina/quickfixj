@@ -19,6 +19,7 @@
 
 package quickfix;
 
+import org.quickfixj.StringBuilderHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -1210,7 +1211,7 @@ public class DataDictionary {
          */
         @Override
         public String toString() {
-            return new StringBuilder('(').append(intValue).append(',').append(stringValue).append(')').toString();
+            return StringBuilderHelper.instance().append('(').append(intValue).append(',').append(stringValue).append(')').toString();
         }
     }
 

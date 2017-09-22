@@ -30,6 +30,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.quickfixj.CharsetSupport;
+import org.quickfixj.StringBuilderHelper;
 import org.w3c.dom.CDATASection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -134,7 +135,7 @@ public class Message extends FieldMap {
         header.setInt(BodyLength.FIELD, bodyLength);
         trailer.setString(CheckSum.FIELD, checksum());
 
-        final StringBuilder sb = new StringBuilder(bodyLength);
+        final StringBuilder sb = StringBuilderHelper.instance();
         header.calculateString(sb, null, null);
         calculateString(sb, null, null);
         trailer.calculateString(sb, null, null);

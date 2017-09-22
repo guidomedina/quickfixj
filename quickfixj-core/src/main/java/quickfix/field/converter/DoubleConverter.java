@@ -19,6 +19,7 @@
 
 package quickfix.field.converter;
 
+import org.quickfixj.StringBuilderHelper;
 import quickfix.FieldConvertError;
 import quickfix.RuntimeError;
 
@@ -55,7 +56,7 @@ public class DoubleConverter {
         }
         DecimalFormat f = decimalFormats[padding];
         if (f == null) {
-            StringBuilder buffer = new StringBuilder("0.");
+            StringBuilder buffer = StringBuilderHelper.instance().append("0.");
             for (int i = 0; i < padding; i++) {
                 buffer.append('0');
             }

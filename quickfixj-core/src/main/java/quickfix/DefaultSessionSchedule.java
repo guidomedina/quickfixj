@@ -19,6 +19,7 @@
 
 package quickfix;
 
+import org.quickfixj.StringBuilderHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -306,7 +307,7 @@ public class DefaultSessionSchedule implements SessionSchedule {
     }
 
     public String toString() {
-        StringBuilder buf = new StringBuilder();
+        StringBuilder buf = StringBuilderHelper.instance();
 
         SimpleDateFormat dowFormat = new SimpleDateFormat("EEEE");
         dowFormat.setTimeZone(TimeZone.getTimeZone("UTC"));

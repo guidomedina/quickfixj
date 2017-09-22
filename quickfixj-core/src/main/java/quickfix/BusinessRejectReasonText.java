@@ -23,6 +23,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 
+import org.quickfixj.StringBuilderHelper;
 import quickfix.field.BusinessRejectReason;
 
 /**
@@ -59,7 +60,7 @@ public class BusinessRejectReasonText extends BusinessRejectReason {
      * @return the converted text
      */
     static String toText(String constName) {
-        StringBuilder sb = new StringBuilder(constName.toLowerCase());
+        final StringBuilder sb = StringBuilderHelper.instance().append(constName.toLowerCase());
         boolean upper = true; // first character is upper
         for (int i = 0; i < sb.length(); i++) {
             if (upper) {

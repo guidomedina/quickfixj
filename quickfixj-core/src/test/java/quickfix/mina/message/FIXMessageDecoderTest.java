@@ -29,6 +29,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.quickfixj.CharsetSupport;
+import org.quickfixj.StringBuilderHelper;
 import quickfix.DataDictionaryTest;
 import quickfix.InvalidMessage;
 import quickfix.Message;
@@ -369,7 +370,7 @@ public class FIXMessageDecoderTest {
         final IoSessionStub mockSession = new IoSessionStub();
 
         int count = 5;
-        final StringBuilder builder = new StringBuilder(message.length() * 5);
+        final StringBuilder builder = StringBuilderHelper.instance();
         for (int i = 0; i < count; i++) {
             builder.append(message);
         }

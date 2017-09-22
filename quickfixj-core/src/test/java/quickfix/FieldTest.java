@@ -21,6 +21,7 @@ package quickfix;
 
 import org.junit.Test;
 import org.quickfixj.CharsetSupport;
+import org.quickfixj.StringBuilderHelper;
 import quickfix.field.MDUpdateAction;
 import quickfix.field.RawData;
 import quickfix.field.Side;
@@ -239,7 +240,7 @@ public class FieldTest {
         assertEquals(RawData.FIELD, field.getTag());
         assertTrue(Arrays.equals(data, field.getObject()));
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = StringBuilderHelper.instance();
         field.toString(sb);
         assertEquals("96=rawdata", sb.toString());
     }
